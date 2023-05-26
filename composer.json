@@ -1,0 +1,12 @@
+{
+    "require": {
+        "guzzlehttp/guzzle": "^7.0",
+        "ext-json": "*",
+        "vlucas/phpdotenv": "^5.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "GoodSign\\": "src/"
+        }
+    }
+}
