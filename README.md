@@ -18,9 +18,9 @@ GOODSIGN_API_TOKEN=your_api_token
 
 
 Then, you can use the SDK like this:
-cd into the main directory (you will see the src and examples folder. 
+cd into the main directory (you will see the src and examples in the root folder run a file using
 ```
-php
+php filename.php 
 ```
 
 ## Contributing
