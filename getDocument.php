@@ -1,8 +1,8 @@
 <?php
 
-use GoodSign\GoodSignAPI;
 require __DIR__ . '/vendor/autoload.php';
 require 'src/GoodSignAPI.php';
+use GoodSign\GoodSignAPI;
 
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
 $dotenv->load();

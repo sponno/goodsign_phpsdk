@@ -12,5 +12,9 @@ $api_token = $_ENV['GOODSIGN_API_TOKEN'];
 $goodsign = new GoodSignAPI($api_token, 'https://localhost:8000');
 
 // Call the getDocument method on the instance
-$document = $goodsign->sendReminder('7ae343b3-19e8-4642-beb0-8509ec65fa4e');
+//$document = $api->getDocument('a7ed6a69-f172-4d1b-b61d-aa4701f944a6');
+$document = $goodsign->voidDocument('a6a2c021-a9d3-4ae8-98be-b159f03d3bdb');
 var_dump($document);
+
+//$templates = $goodsign->getTemplates();
+//var_dump($templates);
