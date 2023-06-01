@@ -12,7 +12,7 @@ class Payload
     public $cc_email = '';      // seperate mulple email address with a comma, eg "a@b.com,c@d.com"
     public $smsverify = false;  // require contacts to verify their mobile phone number before signing
     public $send_in_order = false;
-    public $duplicate = false;  // leave a false – only use if you're creatig on-off templates with the API.
+    public $duplicate = false;  // leave a false – only use if you're creating on-off templates with the API.
     public $email_subject = null;
     public $email_message = null;
     public $ignore_missing_signers = false; // set to true if you want GoodSign to delete extra signers found in your template.
@@ -44,5 +44,7 @@ class Payload
         if(preg_match("/^\[.*\|.*\]$/", $value)==0) throw new \Exception("Invalid xref value: $value");
         $this->xrefs[$key] = $value;
     }
+
+
 
 }

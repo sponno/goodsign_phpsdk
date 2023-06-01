@@ -11,7 +11,7 @@ $dotenv->load();
 $api_token = $_ENV['GOODSIGN_API_TOKEN'];
 
 // Create an instance of the class
-$goodsign = new GoodSignAPI($api_token, 'https://localhost:8000');
+$goodsign = new GoodSignAPI($api_token);
 
 // You can use this method to test your GoodSign WebHook Handler.
 // This will simulate the webhook that GoodSign will send you application when something happens with your document.

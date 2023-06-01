@@ -11,14 +11,13 @@ $dotenv->load();
 $api_token = $_ENV['GOODSIGN_API_TOKEN'];
 
 // Create an instance of the class
-$goodsign = new GoodSignAPI($api_token, 'https://localhost:8000');
+$goodsign = new GoodSignAPI($api_token);
 
-$payload = new Payload();
-$payload->uuid = '83570f6b-4f28-49d2-b1ec-698f138f250c';
-$payload->doc_name = 'NDA Simple.pdf';
-$payload->metadata = ['any valid json works'];
-$payload->addSigner('signer1', 'John PHP', 'john@bluespark.co.nz', 0);
 
-$payload->attachment_names_in_order = ['NDA Simple.pdf','NDA Simple2.pdf'];
-$response = $goodsign->useTemplate( $payload);
+$goodsign->setUUID('83570f6b-4f28-49d2-b1ec-698f138f250c')
+    ->setDocName('NDA Simple2.pdf')
+    ->setMetaData(['any valid json works'])
+    ->addSigner('signer1', 'John PHP', 'john@bluespark.co.nz', 0);
+
+$response = $goodsign->useTemplate();
 var_dump($response);

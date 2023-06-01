@@ -9,9 +9,7 @@ $dotenv->load();
 $api_token = $_ENV['GOODSIGN_API_TOKEN'];
 
 // Create an instance of the class
-$goodsign = new GoodSignAPI($api_token, 'https://localhost:8000');
-
-
+$goodsign = new GoodSignAPI($api_token);
 
 $templates = $goodsign->getTemplates();
 var_dump($templates);

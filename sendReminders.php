@@ -9,8 +9,8 @@ $dotenv->load();
 $api_token = $_ENV['GOODSIGN_API_TOKEN'];
 
 // Create an instance of the class
-$goodsign = new GoodSignAPI($api_token, 'https://localhost:8000');
+$goodsign = new GoodSignAPI($api_token);
 
 // Call the getDocument method on the instance
-$document = $goodsign->sendReminder('7ae343b3-19e8-4642-beb0-8509ec65fa4e');
+$document = $goodsign->sendReminder('0e479a0e-d183-4b83-8388-646b2ac86842');
 var_dump($document);
