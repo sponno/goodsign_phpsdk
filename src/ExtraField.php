@@ -26,21 +26,47 @@ class ExtraField
     public ?float $height = null;
     public ?int $page = null;     // first page is page 1.
 
-
-    public function __construct(string $key, string $type, string $value, float $left, float $top, float $width, float $height, int $page, string $opt='', string $style='')
-    {
+    public function setKey($key){
         $this->key = $key;
-        $this->type = $type;
-        $this->value = $value;
-        $this->left = $left;
-        $this->top = $top;
-        $this->width = $width;
-        $this->height = $height;
-        $this->page = $page;
-
-        $this->opt = $opt;
-        $this->style = $style;
+        return $this;
     }
+    public function setType($type){
+        $this->type = $type;
+        return $this;
+    }
+    public function setTag($value){
+        $this->value = $value;
+        return $this;
+    }
+    public function setLeft($left){
+        $this->left = $left;
+        return $this;
+    }
+    public function setTop($top){
+        $this->top = $top;
+        return $this;
+    }
+    public function setWidth($width){
+        $this->width = $width;
+        return $this;
+    }
+    public function setHeight($height){
+        $this->height = $height;
+        return $this;
+    }
+    public function setPage($page){
+        $this->page = $page;
+        return $this;
+    }
+    public function setOpt($opt){
+        $this->opt = $opt;
+        return $this;
+    }
+    public function setStyle($style){
+        $this->style = $style;
+        return $this;
+    }
+
 
     public function validateField():string{
         if($this->key=="" and $this->type!="label"){

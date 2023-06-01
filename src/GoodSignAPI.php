@@ -185,6 +185,7 @@ class GoodSignAPI extends Payload
                 'contents' => json_encode($this->payload)
             ]
         ];
+
         // add any file attachments
         if(count($this->attachments) > 0){
             foreach ($this->attachments as $attachment) {
@@ -198,7 +199,6 @@ class GoodSignAPI extends Payload
             $response = $this->client->request('POST', '/api/uploadpdf', [
                 'multipart' => $formData
             ]);
-
             [$valid, $data] =  $this->proccessJson($response->getBody());
             return $data;
 
