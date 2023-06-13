@@ -1,4 +1,6 @@
 {
+    "name": "goodsign/phpapi",
+    "description": "Use the GoodSign.io eSignature API to send document to customers for signing. This package supports document generation from existing templates or via PDF upload with TextTags ",
     "require": {
         "guzzlehttp/guzzle": "^7.0",
         "ext-json": "*",

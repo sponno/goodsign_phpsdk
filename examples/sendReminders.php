@@ -1,7 +1,7 @@
 <?php
+require __DIR__ . '/../vendor/autoload.php';
+require __DIR__ .'/../src/GoodSignAPI.php';
 
-require __DIR__ . '/vendor/autoload.php';
-require 'src/GoodSignAPI.php';
 use GoodSign\GoodSignAPI;
 
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
@@ -12,7 +12,5 @@ $api_token = $_ENV['GOODSIGN_API_TOKEN'];
 $goodsign = new GoodSignAPI($api_token);
 
 // Call the getDocument method on the instance
-//$document = $api->getDocument('a7ed6a69-f172-4d1b-b61d-aa4701f944a6');
-$document = $goodsign->getDocument('91f31155-b595-49e4-8f46-b043c9015240');
+$document = $goodsign->sendReminder('0e479a0e-d183-4b83-8388-646b2ac86842');
 var_dump($document);
-

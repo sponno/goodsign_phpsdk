@@ -1,11 +1,11 @@
 <?php
 
+require __DIR__ . '/../vendor/autoload.php';
+require __DIR__ .'/../src/GoodSignAPI.php';
+
 use GoodSign\ExtraField;
 use GoodSign\GoodSignAPI;
-use GoodSign\Payload;
 
-require __DIR__ . '/vendor/autoload.php';
-require 'src/GoodSignAPI.php';
 
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
 $dotenv->load();
@@ -56,10 +56,10 @@ $goodsign->setDocName( 'NDA Simple.pdf')
 
          // Find tags withing the document that are placeholders. This ar xref fields. They can become any type of input or label.
          // Labels auto-scale to height of box.
-        ->addAttachment('./files/goodsign_guide_v1.4.pdf','Doc two from JOHN.pdf')
+        ->addAttachment('./goodsign_guide_v1.4.pdf','Doc two from JOHN.pdf')
         ->addXref('xref1','[label|this is a label field]');
 
 
 // Upload document and get response back.
-$response = $goodsign->uploadPdf('./files/goodsign_guide_v1.4.pdf');
+$response = $goodsign->uploadPdf('./goodsign_guide_v1.4.pdf');
 var_dump($response);

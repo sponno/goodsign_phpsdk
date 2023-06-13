@@ -19,6 +19,7 @@ class Payload
     public $signers = [];
     public $xrefs = null;
     public $extrafields = null;
+    public $fields = [];
 
     public function addSigner($key, $name, $email, $reminder_days) {
         if(filter_var($email, FILTER_VALIDATE_EMAIL)===false) throw new \Exception("Invalid email address: $email");
@@ -35,6 +36,11 @@ class Payload
         $msg = $field->validateField();
         if($msg!="") throw new \Exception("Invalid extra field: $msg");
         $this->extrafields[] = (array)$field;
+    }
+
+    // This sets the value of a field in the document. The field must be defined in the template
+    public function addField($apikey, $value) {
+        $this->fields[] = ['key'=>$apikey, 'value'=>$value];
     }
 
     // Used when uploading a PDF that has "xref" tags. eg [x_somevalue] in the pdf. Programatically change them to other fields

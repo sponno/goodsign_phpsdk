@@ -63,6 +63,14 @@ class GoodSignAPI extends Payload
         return $this;
     }
 
+    // sets the value of an existing field in the document.
+    // only works with templates - the apiref can be set in the GoodSign Designer
+    // when you select a field AND developer mode (GoodSign > Settings > Developer Mode)
+    public function setField(string $apiref , string $value):GoodSignAPI{
+        $this->payload->addField($apiref, $value);
+        return $this;
+    }
+
      // Adds an attachment to a document - can only be used with uploadPDF.
     public function addAttachment($filePath, $nameIncludingExtension )
     {
@@ -142,6 +150,7 @@ class GoodSignAPI extends Payload
     public function getDocument($uuid )
     {
         $response = $this->client->get("/api/document/{$uuid}");
+        //echo $response->getBody();
         [$valid, $data] =  $this->proccessJson($response->getBody());
         if (!$valid) {
             return $data;
@@ -199,6 +208,8 @@ class GoodSignAPI extends Payload
             $response = $this->client->request('POST', '/api/uploadpdf', [
                 'multipart' => $formData
             ]);
+            //var_dump($response->getBody()->getContents());
+            [$valid, $data] =  $this->proccessJson($response->getBody());
             [$valid, $data] =  $this->proccessJson($response->getBody());
             return $data;
 
@@ -268,6 +279,9 @@ class GoodSignAPI extends Payload
             $response['success'] = false;
             $response['msg'] = $data['message'];
             return [false, $response];
+        }
+        if($data['success'] == false){
+            return [false, $data];
         }
 
         return [true, $data];
