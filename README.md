@@ -10,17 +10,18 @@ This is a PHP SDK for the GoodSign API. It provides methods to interact with the
 
 ## Usage
 
-First, set your GoodSign API token as an environment variable in a `.env` file:
-You can get you API Key from https://goodsign.io/profile/apikeys
+Have a look at the "examples" folder. 
+Add your GoodSign API token as an environment variable in a `.env` file by renaming the .env.copy -> .env
+You can get your API Key from https://goodsign.io/profile/apikeys
 
 
 GOODSIGN_API_TOKEN=your_api_token
 
 
 Then, you can use the SDK like this:
-cd into the main directory (you will see the src and examples in the root folder run a file using
+cd into the example directory (you will see the src and examples in the root folder run a file using the PHP command
 ```
-php filename.php 
+php getTemplates.php 
 ```
 
 ## Contributing
